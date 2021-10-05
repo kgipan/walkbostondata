@@ -1,0 +1,60 @@
+<div id="container">
+  <!-- populated by JS-->
+</div>
+<script src="./boston.js"></script>
+<script>
+  function renderBoston(boston, container) {
+    var person = boston.data;
+    var len = boston.data.length;
+    var html = '';
+    for (let i = 0; i < len; i++) {
+      html += '<li class="post">' +
+        '<h2>' + person[i][8] + '</h2>' +
+        '<h3>' + person[i][11] + '</h3>'
+    }
+    container.innerHTML = '<ul id = "boston">' + html + '</ul>';
+  }
+  function topSalaries(boston,container){//boston is an object i.e. boston.data & boston.meta. container is a div on the index.html
+  const people = boston.data; //people points to the object boston.data
+  var topSalaries = people.sort(function(a,b){
+  return b[11] - a[11]}).slice(0,5); // sorts people by index's 11 by highest salary first to lowest salary last slice(0,5) will take top 5
+  
+}
+
+//let html = '';
+//for (let i = 0; i < topSalaries.length; i++) {
+  //html +=
+//'<li class="top">' + '<h2>' + topSalaries[i][8] + '</h2>' + '<h3>' + topSalaries[i][11] + '</h3>';
+ //}
+ //container.innerHTML = '<ul id = "topSalaries">' + html + '</ul>';
+
+  //renderBoston(boston, document.getElementById('container'));
+  //testing below
+function topSalaries(boston,container){//boston is an object i.e. boston.data & boston.meta. container is a div on the index.html
+const people = boston.data; //people points to the object boston.data
+const len = topSalaries.length;
+const sortedSalaries = people.sort(function(a,b){
+  return b[18] - a[18]}); // sorts people by index's 11 by highest salary first to lowest salary last
+
+var topSalaries = sortedSalaries.slice(0,5); // takes the top five salaries
+let html = '';
+for (let i = 0; i < len; i++) {
+  html +=
+'<li class="top">' + '<h2>' + topSalaries[i][8] + '</h2>' + '<h3>' + topSalaries[i][11] + '</h3>';
+}
+container.innerHTML = '<ul id = "topSalaries">' + html + '</ul>';
+} 
+//The goal of this exercise is to pick out the top 5 earners in Boston (total salary + overtime) and list them out in the web page as shown below:
+//Name     Total Earned
+function topFive(boston,container){
+const people = boston.data;
+const topFive =people.filter(i[18] > 200,000);//filter through array pull into new variable salary plus OT that is over 200,000.  
+const len = topFive.length;
+let html = '';
+for (let i = 0; i < len; i++) {
+  html +=
+'<li class="top">' + '<h2>' + topFive[i][8] + '</h2>' + '<h3>' + topFive[i][18] + '</h3>';
+}  
+container.innerHTML = '<ul id = "topEmployees">' + html + '</ul>';  
+}
+</script>
